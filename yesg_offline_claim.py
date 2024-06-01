@@ -25,7 +25,7 @@ def process_data(auth, device_id, telegram_id):
     response = requests.post('https://api.yescoin.gold/game/claimOfflineYesPacBonus', headers=headers)
     print(response.text)
 
-with open('datatest.txt', 'r') as file:
+with open('datayesg.txt', 'r') as file:
             for line in file:
                 auth, device_id, telegram_id = line.strip().split('|')
                 threading.Thread(target=process_data, args=(auth, device_id, telegram_id)).start()
