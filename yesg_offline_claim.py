@@ -1,7 +1,7 @@
 import requests
 import threading
 import time
-def process_data(auth, device_id, telegram_id):
+def process_data(auth):
     headers = {
         'Accept': 'application/json, text/plain, */*',
 		'Accept-Encoding': 'gzip, deflate, br, zstd',
@@ -27,6 +27,6 @@ def process_data(auth, device_id, telegram_id):
 
 with open('datayesg.txt', 'r') as file:
             for line in file:
-                auth, device_id, telegram_id = line.strip().split('|')
-                threading.Thread(target=process_data, args=(auth, device_id, telegram_id)).start()
+                auth = line.strip().split('|')
+                threading.Thread(target=process_data, args=(auth)).start()
             time.sleep(5)
